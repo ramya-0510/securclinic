@@ -13,53 +13,54 @@ function BrandPanel() {
         </div>
       </div>
 
-      {/* Image card with decorative shapes */}
-      <div className="relative w-full max-w-xl">
+      
+      <div className="flex flex-col items-center w-full max-w-xl gap-4">
 
+        <div className="relative w-full">
+          {/* Image card */}
+          <div className="rounded-2xl overflow-hidden border-4 border-white/30 relative">
+            <img
+              src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800"
+              alt="Clinic"
+              className="w-full object-cover"
+              style={{ height: "420px" }}
+            />
+          </div>
 
-        {/* Image card */}
-        <div className="rounded-2xl overflow-hidden border-4 border-white/30 z-0 relative">
-          <img
-            src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800"
-            alt="Clinic"
-            className="w-full object-cover"
-            style={{ height: "420px" }}
+          {/* Top-left square */}
+          <div
+            className="absolute -top-4 -left-5 w-12 h-12 rounded-xl border-2 border-white/30 z-10 rotate-12"
+            style={{ background: "transparent" }}
+          />
+
+          {/* Bottom-right circle */}
+          <div
+            className="absolute -bottom-4 -right-4 w-11 h-11 border-2 border-white/30 rounded-full z-10"
+            style={{ background: "transparent" }}
           />
         </div>
 
-        {/* Top-left rotated square*/}
-        <div
-          className="absolute -top-4 -left-5 w-12 h-12 rounded-xl border-2 border-white/30 z-10 transform rotate-25"
-          style={{ background: "transparent" }}
-        />
-
-        {/* Bottom-right circle */}
-        <div
-          className="absolute -bottom-6 -right-4 w-10 h-10 border-2 border-white/30 rounded-full"
-          style={{ background: "transparent" }}
-        />
-      </div>
-
-      <div>
-        <p className="text-white text-center text-lg font-semibold mb-6">
+        {/* Slogan */}
+        <p className="text-white text-center text-xl font-semibold mt-2">
           Add your own slogan in the settings page
         </p>
 
-        <div className="flex items-center justify-center gap-8">
-          <div className="flex items-center gap-2">
-            <div className="flex -space-x-2">
-              {[1, 2, 3].map((i) => (
-                <div key={i} className="w-8 h-8 rounded-full bg-blue-200 border-2 border-white" />
-              ))}
-            </div>
-            <span className="text-white text-sm font-medium">1000+ Users</span>
-          </div>
-          <div className="flex items-center gap-1">
-            {[1, 2, 3, 4, 5].map((i) => (
-              <span key={i} className="text-yellow-400 text-base">★</span>
+      </div>
+
+      <div className="flex items-center justify-center gap-10">
+        <div className="flex items-center gap-2">
+          <div className="flex -space-x-2">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="w-8 h-8 rounded-full bg-blue-200 border-2 border-white" />
             ))}
-            <span className="text-white text-sm ml-1">4.9/5</span>
           </div>
+          <span className="text-white text-sm font-medium">1000+ Users</span>
+        </div>
+        <div className="flex items-center gap-1">
+          {[1, 2, 3, 4, 5].map((i) => (
+            <span key={i} className="text-yellow-400 text-base">★</span>
+          ))}
+          <span className="text-white text-sm ml-1">4.9/5</span>
         </div>
       </div>
 

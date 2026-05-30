@@ -13,10 +13,14 @@ function LoginPassword() {
   const location = useLocation();
   const state = location.state as LocationState;
 
-  const mobile = state?.mobile ?? "";
+  const [mobile, setMobile] = useState(state?.mobile ?? "");
   const [password, setPassword] = useState("");
 
   const handleLogin = (): void => {
+    if (mobile.trim().length < 10) {
+      alert("Please enter a valid mobile number");
+      return;
+    }
     if (!password) {
       alert("Please enter your password");
       return;
@@ -31,19 +35,13 @@ function LoginPassword() {
         <p className="text-sm text-gray-500 mt-1">Login with your registered mobile number</p>
       </div>
 
-      {/* Mobile number shown as read-only */}
-      <div className="flex flex-col gap-1">
-        <label className="text-sm text-gray-700 font-medium">Mobile Number</label>
-        <div className="flex items-center border border-gray-200 rounded-lg px-3 py-2 gap-2 bg-gray-50">
-          <span className="text-sm text-gray-800 flex-1">{mobile}</span>
-          <button
-            onClick={() => navigate("/")}
-            className="text-blue-600 text-sm font-medium hover:underline cursor-pointer"
-          >
-            Edit
-          </button>
-        </div>
-      </div>
+      <InputField
+        label="Mobile Number"
+        placeholder="Enter Mobile Number"
+        type="tel"
+        value={mobile}
+        onChange={(e) => setMobile(e.target.value)}
+      />
 
       <div className="flex flex-col gap-1">
         <InputField
