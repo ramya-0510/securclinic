@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import LoginProduct from "./pages/LoginProduct";
-import LoginPassword from "./pages/LoginPassword";
-import OTPVerify from "./pages/OTPVerify";
-import Signup from "./pages/Signup";
+import LoginProduct from "./auth/pages/LoginProduct";
+import LoginPassword from "./auth/pages/LoginPassword";
+import OTPVerify from "./auth/pages/OTPVerify";
+import Signup from "./auth/pages/Signup.tsx";
 
 function App() {
   return (

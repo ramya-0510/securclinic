@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import AuthLayout from "../components/auth/AuthLayout";
+import AuthLayout from "../components/authLayout/AuthLayout";
 import OTPInput from "../components/ui/OTPInput";
 import Button from "../components/ui/Button";
 
@@ -17,12 +17,10 @@ function OTPVerify() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  
   const state = location.state as LocationState;
   const mobile = state?.mobile ?? "Unknown Number";
   const from = state?.from ?? "/";
 
-  
   useEffect(() => {
     if (countdown === 0) {
       setCanResend(true);
@@ -75,7 +73,12 @@ function OTPVerify() {
         <OTPInput length={6} value={otp} onChange={setOtp} />
       </div>
 
-      <Button label="Verify" variant="primary" fullWidth onClick={handleVerify} />
+      <Button
+        label="Verify"
+        variant="primary"
+        fullWidth
+        onClick={handleVerify}
+      />
 
       <p className="text-center text-sm text-gray-500">
         {canResend ? (

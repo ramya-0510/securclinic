@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import AuthLayout from "../components/auth/AuthLayout";
+import AuthLayout from "../components/authLayout/AuthLayout";
 import InputField from "../components/ui/InputField";
 import Button from "../components/ui/Button";
 import faceIcon from "../assets/face-recognition.png";
@@ -32,7 +32,9 @@ function LoginProduct() {
           alt="Face Recognition"
           className="w-12 h-12 opacity-60"
         />
-        <span className="text-sm text-gray-600 font-medium">Use Face Recognition to Login</span>
+        <span className="text-sm text-gray-600 font-medium">
+          Use Face Recognition to Login
+        </span>
       </div>
 
       <div className="flex items-center gap-3">
@@ -49,20 +51,28 @@ function LoginProduct() {
         onChange={(e) => setMobile(e.target.value)}
       />
 
-      <Button label="Send OTP" variant="primary" fullWidth onClick={handleSendOTP} />
+      <Button
+        label="Send OTP"
+        variant="primary"
+        fullWidth
+        onClick={handleSendOTP}
+      />
 
       <p className="text-center text-sm text-gray-500">
-      <button
-        onClick={() => navigate("/password", { state: { mobile } })}
-        className="text-blue-600 font-medium hover:underline cursor-pointer"
-      >
-        Login with Password
-    </button>
-    </p>
+        <button
+          onClick={() => navigate("/password", { state: { mobile } })}
+          className="text-blue-600 font-medium hover:underline cursor-pointer"
+        >
+          Login with Password
+        </button>
+      </p>
 
       <p className="text-center text-sm text-gray-500">
         New here?{" "}
-        <button onClick={() => navigate("/signup")} className="text-blue-600 font-medium hover:underline cursor-pointer">
+        <button
+          onClick={() => navigate("/signup")}
+          className="text-blue-600 font-medium hover:underline cursor-pointer"
+        >
           Sign Up
         </button>
       </p>

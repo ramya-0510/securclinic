@@ -17,9 +17,11 @@ function RoleSelector({ selected, onChange }: RoleSelectorProps) {
             key={role}
             onClick={() => onChange(role)}
             className={`flex-1 py-2 px-4 border rounded-lg text-sm transition-all
-              ${selected === role
-                ? "border-blue-500 bg-blue-50 text-blue-700 font-medium"
-                : "border-gray-200 text-gray-500 hover:border-blue-300"}`}
+              ${
+                selected === role
+                  ? "border-blue-500 bg-blue-50 text-blue-700 font-medium"
+                  : "border-gray-200 text-gray-500 hover:border-blue-300"
+              }`}
           >
             {role}
           </button>

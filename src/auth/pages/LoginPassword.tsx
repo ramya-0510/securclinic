@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import AuthLayout from "../components/auth/AuthLayout";
+import AuthLayout from "../components/authLayout/AuthLayout";
 import InputField from "../components/ui/InputField";
 import Button from "../components/ui/Button";
 
@@ -32,7 +32,9 @@ function LoginPassword() {
     <AuthLayout>
       <div>
         <h1 className="text-2xl font-bold text-gray-800">Welcome Back 👋</h1>
-        <p className="text-sm text-gray-500 mt-1">Login with your registered mobile number</p>
+        <p className="text-sm text-gray-500 mt-1">
+          Login with your registered mobile number
+        </p>
       </div>
 
       <InputField
