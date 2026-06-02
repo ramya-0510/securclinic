@@ -1,20 +1,7 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import LoginProduct from "./auth/pages/LoginProduct";
-import LoginPassword from "./auth/pages/LoginPassword";
-import OTPVerify from "./auth/pages/OTPVerify";
-import Signup from "./auth/pages/Signup.tsx";
+import AppRouter from "./routes/AppRouter";
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/"         element={<LoginProduct />} />
-        <Route path="/password" element={<LoginPassword />} />
-        <Route path="/otp"      element={<OTPVerify />} />
-        <Route path="/signup"   element={<Signup />} />
-      </Routes>
-    </BrowserRouter>
-  );
+  return <AppRouter />;
 }
 
 export default App;
