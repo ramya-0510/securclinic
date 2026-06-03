@@ -17,7 +17,7 @@ function DateSelector() {
           key={item.day}
           variant="ghost"
           fullWidth
-          className={`h-[68px] min-w-0 px-2 text-center font-normal transition ${
+          className={`h-17 min-w-0 px-2 text-center font-normal transition ${
             item.active
               ? "rounded-lg bg-blue-600 text-white shadow-sm"
               : "rounded-none text-blue-600 hover:bg-blue-100"
