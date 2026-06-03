@@ -25,7 +25,7 @@ function LoginPassword() {
       alert("Please enter your password");
       return;
     }
-    navigate("/otp", { state: { mobile, from: "/password" } });
+    navigate("/dashboard");
   };
 
   return (

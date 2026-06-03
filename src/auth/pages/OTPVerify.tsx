@@ -48,6 +48,8 @@ function OTPVerify() {
       return;
     }
     console.log("Verifying OTP:", otp);
+    
+    navigate("/dashboard");
   };
 
   return (

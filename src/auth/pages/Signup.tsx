@@ -5,7 +5,7 @@ import InputField from "../components/ui/InputField";
 import Button from "../components/ui/Button";
 import RoleSelector from "../components/authLayout/RoleSelector";
 import type { UserRole } from "../types";
-import cameraIcon from "../assets/camera.png";
+import cameraIcon from "../../assets/camera.png";
 
 function Signup() {
   const [role, setRole] = useState<UserRole>("Doctor");

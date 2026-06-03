@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import AuthLayout from "../components/authLayout/AuthLayout";
 import InputField from "../components/ui/InputField";
 import Button from "../components/ui/Button";
-import faceIcon from "../assets/face-recognition.png";
+import faceIcon from "../../assets/face-recognition.png";
 
 function LoginProduct() {
   const [mobile, setMobile] = useState("");
