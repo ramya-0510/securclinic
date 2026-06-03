@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import Button from "../ui/Button";
 
 interface StatsCardProps {
   title: string;
@@ -27,10 +28,14 @@ function StatsCard({ title, count, action, icon: Icon, className }: StatsCardPro
         </div>
       </div>
 
-      <button className="mt-4 flex w-full items-center justify-center gap-3 rounded-lg bg-blue-600 py-2 text-sm font-medium text-white transition hover:bg-blue-700">
+      <Button
+        variant="primary"
+        fullWidth
+        rightIcon={<ArrowRight size={15} />}
+        className="mt-4 rounded-lg py-2 text-sm font-medium"
+      >
         {action}
-        <ArrowRight size={15} />
-      </button>
+      </Button>
     </div>
   );
 }

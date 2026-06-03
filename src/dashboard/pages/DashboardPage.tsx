@@ -15,9 +15,9 @@ function DashboardPage() {
         <StatsSection />
 
         <div className="grid gap-4 xl:grid-cols-[1fr_557px]">
-          <div className="min-w-0">
+          <div className="min-w-0 h-full">
             {isBookingOpen ? (
-              <PatientBooking />
+              <PatientBooking onConfirmBooking={() => setIsBookingOpen(false)} />
             ) : (
               <ScheduleAppointment onAddPatient={() => setIsBookingOpen(true)} />
             )}

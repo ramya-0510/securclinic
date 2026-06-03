@@ -10,6 +10,7 @@ import {
   LogOut,
 } from "lucide-react";
 import { Fragment } from "react";
+import Button from "../ui/Button";
 
 function Sidebar() {
   const menuItems = [
@@ -49,17 +50,19 @@ function Sidebar() {
 
             return (
               <Fragment key={item.label}>
-                <button
-                  className={`flex w-full items-center gap-3 rounded-md px-3 py-2.5 text-left text-[15px] font-medium transition
+                <Button
+                  variant="ghost"
+                  fullWidth
+                  leftIcon={<Icon size={19} strokeWidth={2.2} />}
+                  className={`justify-start gap-3 px-3 py-2.5 text-left text-[15px] font-medium
                   ${
                     item.active
                       ? "bg-blue-50 text-blue-600"
                       : "text-slate-500 hover:bg-slate-50"
                   }`}
                 >
-                  <Icon size={19} strokeWidth={2.2} />
                   <span>{item.label}</span>
-                </button>
+                </Button>
 
                 {item.label === "Billing" && (
                   <div className="my-3 border-t border-slate-200" />
@@ -75,13 +78,15 @@ function Sidebar() {
           const Icon = item.icon;
 
           return (
-            <button
+            <Button
               key={item.label}
-              className="flex w-full items-center gap-3 rounded-md px-3 py-2.5 text-left text-[15px] font-medium text-slate-500 hover:bg-slate-50"
+              variant="ghost"
+              fullWidth
+              leftIcon={<Icon size={19} strokeWidth={2.1} />}
+              className="justify-start gap-3 px-3 py-2.5 text-left text-[15px] font-medium text-slate-500 hover:bg-slate-50"
             >
-              <Icon size={19} strokeWidth={2.1} />
               {item.label}
-            </button>
+            </Button>
           );
         })}
       </div>

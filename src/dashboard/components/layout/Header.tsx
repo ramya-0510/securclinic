@@ -1,4 +1,5 @@
-import { Search, CircleHelp } from "lucide-react";
+import { CircleHelp } from "lucide-react";
+import SearchBar from "../ui/SearchBar";
 
 function Header() {
   return (
@@ -8,17 +9,8 @@ function Header() {
       </h2>
 
       <div className="flex min-w-0 flex-1 items-center justify-end gap-5">
-        <div className="relative hidden w-full max-w-147.5 md:block">
-          <Search
-            size={21}
-            className="absolute left-3.5 top-1/2 -translate-y-1/2 text-blue-600"
-          />
-
-          <input
-            type="text"
-            placeholder="Global Search: Patient Name, UHID, Doctor, Appointments..."
-            className="h-11 w-full rounded-md border border-slate-200 bg-slate-50 pl-12 pr-4 text-sm font-medium text-slate-700 outline-none placeholder:text-slate-500 focus:border-blue-400 focus:bg-white"
-          />
+        <div className="hidden w-full max-w-147.5 md:block">
+          <SearchBar placeholder="Global Search: Patient Name, UHID, Doctor, Appointments..." />
         </div>
 
         <CircleHelp className="shrink-0 text-slate-700" size={20} />

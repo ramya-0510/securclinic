@@ -5,6 +5,7 @@ import {
   Stethoscope,
   Ticket,
 } from "lucide-react";
+import Button from "../ui/Button";
 
 interface AppointmentCardProps {
   type: "Online" | "Clinic";
@@ -43,9 +44,9 @@ function AppointmentCard({ type, action }: AppointmentCardProps) {
         </div>
       </div>
 
-      <button className="h-7 rounded-md bg-blue-600 px-4 text-[11px] font-semibold text-white hover:bg-blue-700">
+      <Button variant="primary" className="h-7 px-4 text-[11px]">
         {action}
-      </button>
+      </Button>
     </div>
   );
 }

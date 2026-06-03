@@ -3,6 +3,8 @@ import CalendarHeader from "./CalendarHeader";
 import DateSelector from "./DateSelector";
 import SlotGrid from "./SlotGrid";
 import SlotLegend from "./SlotLegend";
+import Button from "../ui/Button";
+import Card from "../ui/Card";
 
 interface ScheduleAppointmentProps {
   onAddPatient: () => void;
@@ -10,7 +12,7 @@ interface ScheduleAppointmentProps {
 
 function ScheduleAppointment({ onAddPatient }: ScheduleAppointmentProps) {
   return (
-    <section className="rounded-lg bg-white p-4 shadow-sm">
+    <Card className="flex h-full flex-col">
       <div>
         <h2 className="text-lg font-bold text-slate-800">
           Schedule Appointment
@@ -20,22 +22,26 @@ function ScheduleAppointment({ onAddPatient }: ScheduleAppointmentProps) {
         </p>
       </div>
 
-      <div className="mt-7 space-y-4">
-        <CalendarHeader />
-        <DateSelector />
-        <SlotGrid />
+      <div className="mt-7 flex flex-1 flex-col justify-between gap-4">
+        <div className="space-y-4">
+          <CalendarHeader />
+          <DateSelector />
+          <SlotGrid />
+        </div>
+
         <SlotLegend />
 
-        <button
-          type="button"
+        <Button
+          variant="secondary"
           onClick={onAddPatient}
-          className="flex h-10 w-full items-center justify-center gap-2 rounded-md bg-slate-50 text-sm font-bold text-slate-800 hover:bg-slate-100"
+          fullWidth
+          leftIcon={<UserRoundPlus size={18} />}
+          className="h-10 text-sm font-bold"
         >
-          <UserRoundPlus size={18} />
           Add Patient
-        </button>
+        </Button>
       </div>
-    </section>
+    </Card>
   );
 }
 

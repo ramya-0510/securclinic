@@ -1,10 +1,13 @@
 import { CalendarDays, RefreshCw } from "lucide-react";
 import AppointmentList from "./AppointmentList";
 import AppointmentTabs from "./AppointmentTabs";
+import Button from "../ui/Button";
+import Card from "../ui/Card";
+import Select from "../ui/Select";
 
 function TodayAppointments() {
   return (
-    <section className="rounded-lg bg-white p-4 shadow-sm">
+    <Card>
       <div className="flex items-center justify-between gap-4">
         <h2 className="text-lg font-bold text-slate-800">
           Today's Appointments
@@ -16,10 +19,13 @@ function TodayAppointments() {
             09 Dec, Tue
           </div>
 
-          <button className="flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-blue-600">
-            <RefreshCw size={15} />
+          <Button
+            variant="ghost"
+            leftIcon={<RefreshCw size={15} />}
+            className="text-sm font-semibold"
+          >
             Refresh
-          </button>
+          </Button>
         </div>
       </div>
 
@@ -27,14 +33,15 @@ function TodayAppointments() {
         <div className="flex items-center justify-between gap-3">
           <AppointmentTabs />
 
-          <select className="h-7 rounded-md border border-slate-200 bg-slate-50 px-3 text-xs font-medium text-slate-700 outline-none">
-            <option>All Doctors</option>
-          </select>
+          <Select
+            options={[{ label: "All Doctors", value: "all" }]}
+            className="h-7 min-w-27 text-slate-700"
+          />
         </div>
       </div>
 
       <AppointmentList />
-    </section>
+    </Card>
   );
 }
 

@@ -2,10 +2,16 @@ import { UserRoundPlus } from "lucide-react";
 import PatientInfoForm from "./PatientInfoForm";
 import SelectedSlot from "./SelectedSlot";
 import TreatmentDoctorForm from "./TreatmentDoctorForm";
+import Button from "../ui/Button";
+import Card from "../ui/Card";
 
-function PatientBooking() {
+interface PatientBookingProps {
+  onConfirmBooking: () => void;
+}
+
+function PatientBooking({ onConfirmBooking }: PatientBookingProps) {
   return (
-    <section className="rounded-lg bg-white p-4 shadow-sm">
+    <Card>
       <SelectedSlot />
 
       <div className="mt-5 space-y-5">
@@ -13,23 +19,24 @@ function PatientBooking() {
         <TreatmentDoctorForm />
 
         <div className="grid gap-4 pt-2 md:grid-cols-2">
-          <button
-            type="button"
-            className="flex h-10 items-center justify-center gap-2 rounded-md bg-slate-50 text-sm font-bold text-slate-800 hover:bg-slate-100"
+          <Button
+            variant="secondary"
+            leftIcon={<UserRoundPlus size={18} />}
+            className="h-10 text-sm font-bold"
           >
-            <UserRoundPlus size={18} />
             Add Patient
-          </button>
+          </Button>
 
-          <button
-            type="button"
-            className="h-10 rounded-md bg-blue-600 text-sm font-bold text-white hover:bg-blue-700"
+          <Button
+            variant="primary"
+            onClick={onConfirmBooking}
+            className="h-10 text-sm font-bold"
           >
             Confirm Booking
-          </button>
+          </Button>
         </div>
       </div>
-    </section>
+    </Card>
   );
 }
 

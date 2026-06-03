@@ -1,4 +1,5 @@
 import { CalendarDays, ChevronLeft, ChevronRight } from "lucide-react";
+import Button from "../ui/Button";
 
 function CalendarHeader() {
   return (
@@ -9,12 +10,18 @@ function CalendarHeader() {
       </div>
 
       <div className="flex items-center gap-3">
-        <button className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-50 text-blue-500 hover:bg-blue-100">
-          <ChevronLeft size={14} />
-        </button>
-        <button className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-50 text-blue-500 hover:bg-blue-100">
-          <ChevronRight size={14} />
-        </button>
+        <Button
+          variant="secondary"
+          className="h-5 w-5 rounded-full bg-blue-50 p-0 text-blue-500 hover:bg-blue-100"
+        >
+          <ChevronLeft size={14} className="text-blue-600" />
+        </Button>
+        <Button
+          variant="secondary"
+          className="h-5 w-5 rounded-full bg-blue-50 p-0 text-blue-500 hover:bg-blue-100"
+        >
+          <ChevronRight size={14} className="text-blue-600" />
+        </Button>
       </div>
     </div>
   );
