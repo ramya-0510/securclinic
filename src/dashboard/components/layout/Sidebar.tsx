@@ -29,9 +29,9 @@ function Sidebar() {
   ];
 
   return (
-    <aside className="hidden min-h-screen w-60 shrink-0 flex-col justify-between border-r border-slate-200 bg-white lg:flex">
+    <aside className="hidden h-screen w-60 shrink-0 flex-col justify-between overflow-hidden border-r border-slate-200 bg-white lg:flex">
       <div>
-        <div className="flex h-20 items-center border-b border-slate-100 px-5">
+        <div className="flex h-12 items-center border-b border-slate-100 px-5">
           <div className="flex items-center gap-2">
             <img
               src="src/assets/logo.png"

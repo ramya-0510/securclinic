@@ -4,7 +4,7 @@ const tabs = ["All", "Pending", "Completed", "Cancelled"];
 
 function AppointmentTabs() {
   return (
-    <div className="flex flex-wrap items-center gap-2">
+    <div className="mt-1 flex flex-wrap items-center gap-2">
       {tabs.map((tab) => (
         <Button
           key={tab}

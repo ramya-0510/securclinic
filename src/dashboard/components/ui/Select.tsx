@@ -21,7 +21,7 @@ function Select({ options, leftIcon, className = "", ...props }: SelectProps) {
         </span>
       )}
       <select
-        className={`h-10 w-full appearance-none rounded-md border border-slate-200 bg-slate-50 pr-10 text-xs font-medium text-slate-500 outline-none focus:border-blue-400 focus:bg-white ${
+        className={`w-full appearance-none rounded-md border border-slate-200 bg-slate-50 pr-10 text-xs font-medium text-slate-500 outline-none focus:border-blue-400 focus:bg-white ${
           leftIcon ? "pl-10" : "pl-3"
         } ${className}`}
         {...props}

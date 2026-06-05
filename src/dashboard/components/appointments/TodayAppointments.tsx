@@ -7,8 +7,8 @@ import Select from "../ui/Select";
 
 function TodayAppointments() {
   return (
-    <Card>
-      <div className="flex items-center justify-between gap-4">
+    <Card className="h-full flex flex-col overflow-hidden">
+      <div className=" mt-0 flex items-center justify-between gap-4">
         <h2 className="text-lg font-bold text-slate-800">
           Today's Appointments
         </h2>
@@ -29,18 +29,20 @@ function TodayAppointments() {
         </div>
       </div>
 
-      <div className="mt-3 border-t border-slate-200 pt-4">
+      <div className="mt-1 border-t border-slate-200 pt-1">
         <div className="flex items-center justify-between gap-3">
           <AppointmentTabs />
 
           <Select
             options={[{ label: "All Doctors", value: "all" }]}
-            className="h-7 min-w-27 text-slate-700"
+            className="h-6 min-w-27 text-xs text-slate-700"
           />
         </div>
       </div>
 
-      <AppointmentList />
+      <div className="flex-1 min-h-0">
+        <AppointmentList />
+      </div>
     </Card>
   );
 }

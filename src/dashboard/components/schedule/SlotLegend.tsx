@@ -9,7 +9,7 @@ const legends = [
 function SlotLegend() {
   return (
     <div>
-      <p className="mb-2 text-[10px] font-semibold text-blue-500">Legend</p>
+      <p className="mb-1.5 text-[10px] font-semibold text-blue-500">Legend</p>
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
         {legends.map((legend) => (
           <div key={legend.label} className="flex items-center gap-1.5">

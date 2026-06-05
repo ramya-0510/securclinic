@@ -12,7 +12,9 @@ interface StatsCardProps {
 
 function StatsCard({ title, count, action, icon: Icon, className }: StatsCardProps) {
   return (
-    <div className={`rounded-xl bg-blue-100 p-5 flex flex-col justify-between min-h-35 ${className ?? ""}`}>
+    <div
+      className={`rounded-xl bg-[#E1EEFF] p-5 flex flex-col justify-between h-[149px] ${className ?? ""}`}
+    >
       <div className="flex items-start justify-between">
         <div>
           <h3 className="text-4xl font-bold text-blue-600 leading-none">
@@ -32,7 +34,8 @@ function StatsCard({ title, count, action, icon: Icon, className }: StatsCardPro
         variant="primary"
         fullWidth
         rightIcon={<ArrowRight size={15} />}
-        className="mt-4 rounded-lg py-2 text-sm font-medium"
+        className="rounded-lg py-1.5 text-sm font-light"
+        style={{ backgroundColor: "1A73E8" }}
       >
         {action}
       </Button>

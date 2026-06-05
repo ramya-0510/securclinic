@@ -11,22 +11,31 @@ function DashboardPage() {
 
   return (
     <DashboardLayout>
-      <div className="space-y-4">
+      <div className="flex flex-col gap-3 h-full">
+        {/* Stats row */}
         <StatsSection />
 
-        <div className="grid gap-4 xl:grid-cols-[1fr_557px]">
-          <div className="min-w-0 h-full">
+        {/* Main grid */}
+        <div className="grid grid-cols-2 gap-4 flex-1 min-h-0">
+          {/* Left column */}
+          <div className="h-full overflow-hidden">
             {isBookingOpen ? (
               <PatientBooking onConfirmBooking={() => setIsBookingOpen(false)} />
             ) : (
-              <ScheduleAppointment onAddPatient={() => setIsBookingOpen(true)} />
+              <ScheduleAppointment />
             )}
           </div>
 
-          <div className="flex min-w-0 flex-col gap-4">
-            <TodayAppointments />
-            <PatientSearch />
+          {/* Right column */}
+          <div className="grid grid-rows-2 gap-2 h-full min-h-0">
+            <div className="min-h-0 overflow-hidden">
+              <TodayAppointments />
+            </div>
+            <div className="min-h-0 overflow-hidden">
+              <PatientSearch onSearchPatient={() => setIsBookingOpen(true)} />
+            </div>
           </div>
+
         </div>
       </div>
     </DashboardLayout>

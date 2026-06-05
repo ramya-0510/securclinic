@@ -6,10 +6,10 @@ function PatientInfoForm() {
     <div className="border-b border-slate-200 pb-4">
       <h2 className="text-xl font-bold text-slate-800">Patient Information</h2>
 
-      <div className="mt-4 grid gap-4 md:grid-cols-2">
+      <div className="mt-2 grid gap-4 md:grid-cols-2">
         <label className="block">
           <span className="text-xs font-medium text-slate-700">Full Name</span>
-          <div className="mt-2">
+          <div className="mt-1">
             <Input
               type="text"
               placeholder="Enter Full Name"
@@ -22,7 +22,7 @@ function PatientInfoForm() {
           <span className="text-xs font-medium text-slate-700">
             Mobile Number
           </span>
-          <div className="mt-2">
+          <div className="mt-1">
             <Input
               type="text"
               placeholder="Enter Mobile Number"
@@ -32,11 +32,11 @@ function PatientInfoForm() {
         </label>
       </div>
 
-      <label className="mt-4 block">
+      <label className="mt-2 block">
         <span className="text-xs font-medium text-slate-700">
           Patient ID (UHID)
         </span>
-        <div className="mt-2">
+        <div className="mt-1">
           <Input
             type="text"
             placeholder="Enter Patient ID"
@@ -45,7 +45,7 @@ function PatientInfoForm() {
         </div>
       </label>
 
-      <div className="mt-2 flex items-center justify-between gap-4">
+      <div className="mt-1.5 flex items-center justify-between gap-4">
         <p className="text-xs font-medium text-slate-700">Didn't have an id?</p>
         <label className="flex items-center gap-2 text-xs font-medium text-slate-600">
           <input

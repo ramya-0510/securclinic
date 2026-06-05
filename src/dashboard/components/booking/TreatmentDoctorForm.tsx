@@ -4,15 +4,16 @@ import Select from "../ui/Select";
 function TreatmentDoctorForm() {
   return (
     <div>
-      <h2 className="text-xl font-bold text-slate-800">Treatment & Doctor</h2>
+      <h2 className="mt-0 text-xl font-bold text-slate-800">Treatment & Doctor</h2>
 
-      <div className="mt-4 grid gap-4 md:grid-cols-2">
+      <div className="mt-1 grid gap-4 md:grid-cols-2">
         <label className="block">
           <span className="text-xs font-medium text-slate-700">Treatment</span>
-          <div className="mt-2">
+          <div className="mt-1">
             <Select
               defaultValue=""
               leftIcon={<ClipboardPlus size={15} />}
+              className="h-10"
               options={[
                 { label: "Select Treatment", value: "", disabled: true },
                 { label: "General Checkup", value: "general-checkup" },
@@ -25,10 +26,11 @@ function TreatmentDoctorForm() {
 
         <label className="block">
           <span className="text-xs font-medium text-slate-700">Doctor</span>
-          <div className="mt-2">
+          <div className="mt-1">
             <Select
               defaultValue=""
               leftIcon={<Stethoscope size={15} />}
+              className="h-10"
               options={[
                 { label: "Select Doctor", value: "", disabled: true },
                 { label: "Dr. Prakash", value: "dr-prakash" },

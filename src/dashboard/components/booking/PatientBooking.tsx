@@ -14,15 +14,15 @@ function PatientBooking({ onConfirmBooking }: PatientBookingProps) {
     <Card>
       <SelectedSlot />
 
-      <div className="mt-5 space-y-5">
+      <div className="mt-2 space-y-4">
         <PatientInfoForm />
         <TreatmentDoctorForm />
 
-        <div className="grid gap-4 pt-2 md:grid-cols-2">
+        <div className="grid gap-4  md:grid-cols-2">
           <Button
             variant="secondary"
             leftIcon={<UserRoundPlus size={18} />}
-            className="h-10 text-sm font-bold"
+            className=" h-10  text-sm font-bold"
           >
             Add Patient
           </Button>

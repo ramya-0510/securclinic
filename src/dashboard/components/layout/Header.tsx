@@ -3,7 +3,7 @@ import SearchBar from "../ui/SearchBar";
 
 function Header() {
   return (
-    <header className="flex min-h-20 items-center justify-between gap-5 border-b border-slate-100 bg-white px-4 py-4 lg:px-5">
+    <header className="flex min-h-10 items-center justify-between gap-4 border-b border-slate-100 bg-white px-4 py-4 lg:px-5">
       <h2 className="shrink-0 text-2xl font-semibold text-slate-800">
         Welcome, Kavikaran V
       </h2>

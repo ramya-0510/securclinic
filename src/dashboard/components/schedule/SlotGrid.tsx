@@ -12,7 +12,7 @@ const slotClasses = [
 
 function SlotGrid() {
   return (
-    <div className="border-y border-slate-200 py-4">
+    <div className="mt-3 border-y border-slate-200 py-4">
       <div className="grid grid-cols-[42px_repeat(4,minmax(56px,1fr))] gap-1.5 sm:gap-2">
         {times.map((time, rowIndex) => (
           <Fragment key={time}>

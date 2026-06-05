@@ -7,13 +7,13 @@ interface Props {
 
 function DashboardLayout({ children }: Props) {
   return (
-    <div className="min-h-screen bg-[#f7f7f7] text-slate-800 lg:flex">
+    <div className="h-screen bg-[#f7f7f7] text-slate-800 flex overflow-hidden">
       <Sidebar />
 
-      <div className="min-w-0 flex-1">
+      <div className="flex flex-col flex-1 overflow-hidden min-w-0">
         <Header />
 
-        <main className="p-4 lg:p-5">
+        <main className="flex-1 overflow-hidden p-4">
           {children}
         </main>
       </div>

@@ -20,7 +20,7 @@ function AppointmentCard({ type, action }: AppointmentCardProps) {
           John Mathew
         </h3>
 
-        <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-[10px] font-semibold text-slate-500">
+        <div className="mt-0.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-[10px] font-semibold text-slate-500">
           <span className="flex items-center gap-1">
             <Clock3 size={11} />
             11.30 AM

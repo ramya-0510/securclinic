@@ -6,24 +6,20 @@ import SlotLegend from "./SlotLegend";
 import Button from "../ui/Button";
 import Card from "../ui/Card";
 
-interface ScheduleAppointmentProps {
-  onAddPatient: () => void;
-}
-
-function ScheduleAppointment({ onAddPatient }: ScheduleAppointmentProps) {
+function ScheduleAppointment() {
   return (
     <Card className="flex h-full flex-col">
       <div>
-        <h2 className="text-lg font-bold text-slate-800">
+        <h2 className="mt-0 text-lg font-bold text-slate-800">
           Schedule Appointment
         </h2>
-        <p className="mt-1 text-xs font-medium text-slate-500">
+        <p className="mt-0.5 text-xs font-medium text-slate-500">
           Choose date & slot. Max 4 bookings per slot.
         </p>
       </div>
 
-      <div className="mt-7 flex flex-1 flex-col justify-between gap-4">
-        <div className="space-y-4">
+      <div className="mt-3 flex flex-1 flex-col justify-between gap-2">
+        <div className="space-y-2">
           <CalendarHeader />
           <DateSelector />
           <SlotGrid />
@@ -33,10 +29,10 @@ function ScheduleAppointment({ onAddPatient }: ScheduleAppointmentProps) {
 
         <Button
           variant="secondary"
-          onClick={onAddPatient}
           fullWidth
           leftIcon={<UserRoundPlus size={18} />}
-          className="h-10 text-sm font-bold"
+          className="mb-2 mt-0 h-10 text-sm font-bold"
+          style= {{ backgroundColor: "#F6F6F6"}}
         >
           Add Patient
         </Button>
