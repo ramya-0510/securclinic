@@ -62,8 +62,8 @@ function Sidebar() {
                   leftIcon={<Icon size={19} strokeWidth={2.2} />}
                   className={`justify-start gap-3 px-3 py-2.5 text-left text-[15px] font-medium
                     ${isActive
-                      ? "bg-blue-50 text-blue-600"
-                      : "text-slate-500 hover:bg-slate-50"
+                      ? "bg-blue-50 !text-blue-600"
+                      : "!text-slate-500 hover:bg-slate-50"
                     }`}
                 >
                   <span>{item.label}</span>

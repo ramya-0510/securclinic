@@ -6,6 +6,9 @@ import OTPVerify from "../auth/pages/OTPVerify";
 import Signup from "../auth/pages/Signup";
 import DashboardPage from "../dashboard/pages/DashboardPage";
 import AppointmentsPage from "../appointments/pages/AppointmentsPage";
+import PrescriptionsPage from "../prescription/pages/PrescriptionsPage";
+import BillingPage from "../billing/pages/BillingPage";
+
 // import ProtectedRoutes from "./ProtectedRoutes";
 
 const AppRouter = () => {
@@ -17,6 +20,8 @@ const AppRouter = () => {
         <Route path="/otp" element={<OTPVerify />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/appointments" element={<AppointmentsPage />} />
+        <Route path="/prescriptions" element={<PrescriptionsPage />} />
+        <Route path="/billing" element={<BillingPage />} />
 
         {/* Protected route - uncomment when authentication is ready */}
         {/* <Route element={<ProtectedRoutes />}> */}
