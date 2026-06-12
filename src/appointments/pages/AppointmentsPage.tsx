@@ -1,3 +1,4 @@
+// AppointmentsPage.tsx
 import { useState } from "react";
 import { CalendarDays, RefreshCw, Plus } from "lucide-react";
 import DashboardLayout from "../../dashboard/components/layout/DashboardLayout";
@@ -9,12 +10,16 @@ import Button from "../../dashboard/components/ui/Button";
 import AppointmentTableView from "../components/table/AppointmentTableView";
 import NewBookingPage from "../components/booking/NewBookingPage.tsx";
 
-function AppointmentsPage() {
+interface Props {
+  onLogoutClick: () => void;
+}
+
+function AppointmentsPage({ onLogoutClick }: Props) {
   const [activeTab, setActiveTab] = useState("List");
   const [showBooking, setShowBooking] = useState(false);
 
   return (
-    <DashboardLayout headerTitle="Appointments" showSearch={false}>
+    <DashboardLayout headerTitle="Appointments" showSearch={false} onLogoutClick={onLogoutClick}>
       <div className="flex flex-col gap-4 h-full">
 
         {showBooking ? (

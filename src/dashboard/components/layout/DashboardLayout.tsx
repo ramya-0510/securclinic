@@ -5,12 +5,13 @@ interface Props {
   children: React.ReactNode;
   headerTitle?: string;
   showSearch?: boolean;
+  onLogoutClick: () => void;
 }
 
-function DashboardLayout({ children, headerTitle, showSearch = true }: Props) {
+function DashboardLayout({ children, headerTitle, showSearch = true, onLogoutClick }: Props) {
   return (
     <div className="h-screen bg-[#f7f7f7] text-slate-800 flex overflow-hidden">
-      <Sidebar />
+      <Sidebar onLogoutClick={onLogoutClick} />
 
       <div className="flex flex-col flex-1 overflow-hidden min-w-0">
         <Header title={headerTitle} showSearch={showSearch} />

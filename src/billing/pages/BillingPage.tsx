@@ -15,7 +15,11 @@ const MOCK_BILLS: Bill[] = [
 
 type View = "search" | "patient" | "viewBill" | "createBill";
 
-export default function BillingPage() {
+interface Props {
+  onLogoutClick: () => void;
+}
+
+export default function BillingPage({ onLogoutClick }: Props) {
   const [patient, setPatient]           = useState<BillingPatient | null>(null);
   const [view, setView]                 = useState<View>("search");
   const [selectedBill, setSelectedBill] = useState<Bill | null>(null);
@@ -44,7 +48,7 @@ export default function BillingPage() {
 
   return (
     <div className="flex h-screen overflow-hidden bg-gray-50">
-      <Sidebar />
+      <Sidebar onLogoutClick={onLogoutClick} />
 
       <div className="flex flex-1 flex-col overflow-hidden">
         <Header

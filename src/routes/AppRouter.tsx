@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import LoginProduct from "../auth/pages/LoginProduct";
 import LoginPassword from "../auth/pages/LoginPassword";
@@ -7,11 +7,19 @@ import Signup from "../auth/pages/Signup";
 import DashboardPage from "../dashboard/pages/DashboardPage";
 import AppointmentsPage from "../appointments/pages/AppointmentsPage";
 import PrescriptionsPage from "../prescription/pages/PrescriptionsPage";
+import PatientPrescriptionsPage from "../prescription/pages/PatientPrescriptionsPage";
 import BillingPage from "../billing/pages/BillingPage";
+import NewRegistrationPage from "../registration/pages/NewRegistrationPage";
+import ConsultationPage from "../consultation/pages/ConsultationPage";
+import InsightsPage from "../insights/pages/InsightsPage";
+import SettingsPage from "../settings/pages/SettingsPage";
 
-// import ProtectedRoutes from "./ProtectedRoutes";
 
-const AppRouter = () => {
+interface Props {
+  onLogoutClick: () => void;
+}
+
+const AppRouter = ({ onLogoutClick }: Props) => {
   return (
     <BrowserRouter>
       <Routes>
@@ -19,16 +27,15 @@ const AppRouter = () => {
         <Route path="/password" element={<LoginPassword />} />
         <Route path="/otp" element={<OTPVerify />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/appointments" element={<AppointmentsPage />} />
-        <Route path="/prescriptions" element={<PrescriptionsPage />} />
-        <Route path="/billing" element={<BillingPage />} />
-
-        {/* Protected route - uncomment when authentication is ready */}
-        {/* <Route element={<ProtectedRoutes />}> */}
-          <Route path="/dashboard" element={<DashboardPage />} />
-        {/* </Route> */}
-
-        {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
+        <Route path="/dashboard" element={<DashboardPage onLogoutClick={onLogoutClick} />} />
+        <Route path="/appointments" element={<AppointmentsPage onLogoutClick={onLogoutClick} />} />
+        <Route path="/prescriptions" element={<PrescriptionsPage onLogoutClick={onLogoutClick} />} />
+        <Route path="/prescriptions/patient" element={<PatientPrescriptionsPage onLogoutClick={onLogoutClick} />} />
+        <Route path="/billing" element={<BillingPage onLogoutClick={onLogoutClick} />} />
+        <Route path="/new-registration" element={<NewRegistrationPage onLogoutClick={onLogoutClick} />} />
+        <Route path="/consultation" element={<ConsultationPage onLogoutClick={onLogoutClick} />} />
+        <Route path="/insights" element={<InsightsPage onLogoutClick={onLogoutClick} />} />
+        <Route path="/settings" element={<SettingsPage onLogoutClick={onLogoutClick} />} />
       </Routes>
     </BrowserRouter>
   );

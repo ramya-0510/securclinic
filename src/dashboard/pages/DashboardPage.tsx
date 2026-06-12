@@ -6,11 +6,15 @@ import TodayAppointments from "../components/appointments/TodayAppointments";
 import PatientSearch from "../components/patientSearch/PatientSearch";
 import PatientBooking from "../components/booking/PatientBooking";
 
-function DashboardPage() {
+interface Props {
+  onLogoutClick: () => void;
+}
+
+function DashboardPage({ onLogoutClick }: Props) {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   return (
-    <DashboardLayout>
+    <DashboardLayout onLogoutClick={onLogoutClick}>
       <div className="flex flex-col gap-3 h-full">
         {/* Stats row */}
         <StatsSection />
@@ -35,7 +39,6 @@ function DashboardPage() {
               <PatientSearch onSearchPatient={() => setIsBookingOpen(true)} />
             </div>
           </div>
-
         </div>
       </div>
     </DashboardLayout>

@@ -5,24 +5,26 @@ import SharePrescriptionModal from "./SharePrescriptionModal";
 
 interface Props {
   prescription: Prescription;
+  onBack: () => void;
 }
-
 
 const MOCK_MEDICINES = [
   { name: "Paracetamol 650mg", type: "Tablet", qty: "01", morning: "01", afternoon: "-", evening: "-", night: "01", notes: "Duration: 5 days, After food", price: 55 },
   { name: "Amoxicillin 500mg", type: "Capsule", qty: "01", morning: "-", afternoon: "-", evening: "-", night: "01", notes: "Duration: 5 days, Before food", price: 65 },
 ];
 
-export default function ViewPrescription({ prescription }: Props) {
+export default function ViewPrescription({ prescription, onBack }: Props) {
   const total = MOCK_MEDICINES.reduce((sum, m) => sum + m.price, 0);
   const [showShare, setShowShare] = useState(false);
+
   return (
     <div className="flex gap-4 w-full">
 
       {/* Left — Prescription document */}
       <div className="flex-1 rounded-xl bg-white shadow-sm flex flex-col">
-
         <div className="px-6 py-5 flex flex-col gap-5 flex-1">
+
+          {/* ✅ REMOVED: internal "< Prescriptions" back button block */}
 
           {/* Clinic header */}
           <div className="flex items-start justify-between">
@@ -104,16 +106,17 @@ export default function ViewPrescription({ prescription }: Props) {
             </table>
           </div>
 
-          {/* Spacer — pushes signature + footer to bottom */}
           <div className="flex-1" />
 
-          {/* Signature + Footer pinned to bottom */}
+          {/* Signature */}
           <div className="flex justify-end">
             <div className="text-center">
               <div className="border-b mb-2 border-slate-400 w-40" />
               <p className="text-xs text-slate-400 mb-1">Signature</p>
             </div>
           </div>
+
+          {/* Footer */}
           <div className="flex flex-col gap-3 pt-4 border-t border-slate-100">
             <p className="text-center text-xs text-slate-400 pb-2">
               Digitally generated prescription via SecurClinic
@@ -142,7 +145,6 @@ export default function ViewPrescription({ prescription }: Props) {
             <span className="text-base font-bold text-slate-900">₹{total}.00</span>
           </div>
 
-          {/* Spacer */}
           <div className="flex-1" />
 
           {/* QR Code */}
@@ -162,14 +164,11 @@ export default function ViewPrescription({ prescription }: Props) {
 
         {/* Actions */}
         <div className="px-5 pb-5 flex flex-col gap-2">
-
-          {/* "or" divider with lines */}
           <div className="flex items-center gap-3">
             <div className="flex-1 h-px bg-slate-200" />
             <span className="text-xs text-slate-400 shrink-0">or</span>
             <div className="flex-1 h-px bg-slate-200" />
           </div>
-
           <button className="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-2.5 rounded-lg transition">
             <Download size={14} /> Download PDF
           </button>
@@ -177,7 +176,7 @@ export default function ViewPrescription({ prescription }: Props) {
             <button className="flex items-center justify-center gap-1.5 border border-slate-200 text-sm text-slate-600 hover:bg-slate-50 py-2 rounded-lg transition">
               <Printer size={13} /> Print
             </button>
-            <button 
+            <button
               onClick={() => setShowShare(true)}
               className="flex items-center justify-center gap-1.5 border border-slate-200 text-sm text-slate-600 hover:bg-slate-50 py-2 rounded-lg transition">
               <Share2 size={13} /> Share
@@ -185,10 +184,11 @@ export default function ViewPrescription({ prescription }: Props) {
           </div>
         </div>
       </div>
+
       <SharePrescriptionModal
-            isOpen={showShare}
-            onClose={() => setShowShare(false)}
-        />
+        isOpen={showShare}
+        onClose={() => setShowShare(false)}
+      />
 
     </div>
   );
