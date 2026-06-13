@@ -1,4 +1,5 @@
 import { CircleHelp, ChevronLeft } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import SearchBar from "../ui/SearchBar";
 
 interface HeaderProps {
@@ -8,7 +9,7 @@ interface HeaderProps {
 }
 
 function Header({ title = "Welcome, Kavikaran V", showSearch = true, onBack }: HeaderProps) {
-  console.log("Header onBack:", onBack); // debug
+  const navigate = useNavigate();
 
   return (
     <header className="flex min-h-10 items-center justify-between gap-4 border-b border-slate-100 bg-white px-4 py-4 lg:px-5">
@@ -31,11 +32,13 @@ function Header({ title = "Welcome, Kavikaran V", showSearch = true, onBack }: H
           </div>
         )}
         <CircleHelp className="shrink-0 text-slate-700" size={20} />
-        <img
-          src="src/assets/profile.jpg"
-          alt="profile"
-          className="h-11 w-11 shrink-0 rounded-md object-cover shadow-sm"
-        />
+        <button onClick={() => navigate("/settings")} className="shrink-0">
+          <img
+            src="src/assets/profile.jpg"
+            alt="profile"
+            className="h-11 w-11 shrink-0 rounded-md object-cover shadow-sm cursor-pointer"
+          />
+        </button>
       </div>
     </header>
   );

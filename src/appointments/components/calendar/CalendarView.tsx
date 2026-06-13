@@ -27,7 +27,7 @@ function CalendarView() {
   };
 
   return (
-    <div className="flex flex-col rounded-lg bg-white p-3 shadow-sm">
+    <div className="flex flex-col rounded-lg bg-white p-2 shadow-sm">
       {/* Header */}
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2 text-blue-600">

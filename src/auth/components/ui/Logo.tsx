@@ -6,7 +6,8 @@ function Logo() {
         alt="SecurClinic logo"
         className="h-8 w-8 rounded-lg object-contain"
       />
-      <span className="text-blue-600 font-bold text-lg tracking-wide">SECURCLINIC</span>
+      <span className="font-brand text-[18px] tracking-normal text-[#198CFF] uppercase">SECURCLINIC</span>
+      
     </div>
   );
 }

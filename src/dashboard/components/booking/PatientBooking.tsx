@@ -14,7 +14,7 @@ function PatientBooking({ onConfirmBooking }: PatientBookingProps) {
     <Card>
       <SelectedSlot />
 
-      <div className="mt-2 space-y-4">
+      <div className="mt-1 space-y-4">
         <PatientInfoForm />
         <TreatmentDoctorForm />
 

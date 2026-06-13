@@ -6,7 +6,7 @@ function TreatmentDoctorForm() {
     <div>
       <h2 className="mt-0 text-xl font-bold text-slate-800">Treatment & Doctor</h2>
 
-      <div className="mt-1 grid gap-4 md:grid-cols-2">
+      <div className="mt-0 grid gap-4 md:grid-cols-2">
         <label className="block">
           <span className="text-xs font-medium text-slate-700">Treatment</span>
           <div className="mt-1">

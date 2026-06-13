@@ -21,11 +21,20 @@ export default function PrescriptionSearch({ onPatientFound }: Props) {
   const handleSearch = () => {
     if (phone.length !== 10) {
       setError("Please enter a valid 10-digit mobile number.");
+      onPatientFound(null);
       return;
     }
     setError("");
-    // TODO: Replace with real API call
-    onPatientFound({ id: "1", name: "", phone });
+
+    // TODO: Replace with real API call using `phone`
+    onPatientFound({
+      id: "1",
+      name: "John Mathew",
+      phone,
+      uhid: "C0987654321",
+      email: "jmathew@gmail.com",
+      lastVisit: "03 Dec 2025",
+    });
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {

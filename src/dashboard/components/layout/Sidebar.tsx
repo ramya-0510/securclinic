@@ -46,7 +46,7 @@ function Sidebar({ onLogoutClick }: Props) {
               alt="SecurClinic logo"
               className="h-8 w-8 rounded-lg object-contain"
             />
-            <h1 className="text-xl font-medium tracking-wide text-blue-600">
+            <h1 className="font-brand text-[18px] tracking-normal text-[#198CFF] uppercase">
               SECURCLINIC
             </h1>
           </div>

@@ -18,7 +18,7 @@ function ScheduleAppointment() {
         </p>
       </div>
 
-      <div className="mt-3 flex flex-1 flex-col justify-between gap-2">
+      <div className="mt-2 flex flex-1 flex-col justify-between gap-2">
         <div className="space-y-2">
           <CalendarHeader />
           <DateSelector />

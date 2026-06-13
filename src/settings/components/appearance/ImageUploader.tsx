@@ -67,9 +67,10 @@ export function ImageUploader({ label, file, previewUrl, onFileChange }: Props) 
           />
         ) : (
           /* Default SECURCLINIC text for banner */
-          <span className="text-[15px] font-black tracking-[0.25em] text-blue-400 select-none">
+          <span className="font-brand text-[18px] tracking-normal text-[#198CFF] uppercase">
             SECURCLINIC
           </span>
+          
         )}
       </div>
     </div>
