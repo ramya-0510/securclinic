@@ -1,8 +1,10 @@
+import logo from "../../../assets/logo.png";
+
 function Logo() {
   return (
     <div className="flex items-center gap-2">
       <img
-        src="src/assets/logo.png"
+        src={logo}
         alt="SecurClinic logo"
         className="h-8 w-8 rounded-lg object-contain"
       />

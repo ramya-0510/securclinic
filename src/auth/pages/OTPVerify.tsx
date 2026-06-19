@@ -49,7 +49,7 @@ function OTPVerify() {
     }
     console.log("Verifying OTP:", otp);
     
-    navigate("/dashboard");
+    navigate("/patient/dashboard");
   };
 
   return (

@@ -1,6 +1,10 @@
+// src/App.tsx
+
 import { useState } from "react";
+import { BrowserRouter } from "react-router-dom";
 import AppRouter from "./routes/AppRouter";
 import { LogoutModal } from "./logout/LogoutModal";
+import { AuthProvider } from "./auth/useAuth";
 
 function App() {
   const [showLogout, setShowLogout] = useState(false);
@@ -11,14 +15,16 @@ function App() {
   };
 
   return (
-    <>
-      <AppRouter onLogoutClick={() => setShowLogout(true)} />
-      <LogoutModal
-        isOpen={showLogout}
-        onCancel={() => setShowLogout(false)}
-        onConfirm={handleLogout}
-      />
-    </>
+    <BrowserRouter>
+      <AuthProvider>
+        <AppRouter onLogoutClick={() => setShowLogout(true)} />
+        <LogoutModal
+          isOpen={showLogout}
+          onCancel={() => setShowLogout(false)}
+          onConfirm={handleLogout}
+        />
+      </AuthProvider>
+    </BrowserRouter>
   );
 }
 

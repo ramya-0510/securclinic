@@ -25,7 +25,7 @@ function LoginPassword() {
       alert("Please enter your password");
       return;
     }
-    navigate("/dashboard");
+    navigate("/patient/dashboard");
   };
 
   return (
@@ -64,7 +64,7 @@ function LoginPassword() {
 
       <p className="text-center text-sm text-gray-500">
         <button
-          onClick={() => navigate("/")}
+          onClick={() => navigate("/auth/login")}
           className="text-blue-600 font-medium hover:underline cursor-pointer"
         >
           Login with OTP
@@ -74,7 +74,7 @@ function LoginPassword() {
       <p className="text-center text-sm text-gray-500">
         New here?{" "}
         <button
-          onClick={() => navigate("/signup")}
+          onClick={() => navigate("/auth/signup")}
           className="text-blue-600 font-medium hover:underline cursor-pointer"
         >
           Sign Up

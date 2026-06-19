@@ -14,7 +14,7 @@ function LoginProduct() {
       alert("Please enter a valid mobile number");
       return;
     }
-    navigate("/otp", { state: { mobile, from: "/" } });
+    navigate("/auth/otp", { state: { mobile, from: "/auth/login" } });
   };
 
   return (
@@ -60,7 +60,7 @@ function LoginProduct() {
 
       <p className="text-center text-sm text-gray-500">
         <button
-          onClick={() => navigate("/password", { state: { mobile } })}
+          onClick={() => navigate("/auth/password", { state: { mobile } })}
           className="text-blue-600 font-medium hover:underline cursor-pointer"
         >
           Login with Password
@@ -70,7 +70,7 @@ function LoginProduct() {
       <p className="text-center text-sm text-gray-500">
         New here?{" "}
         <button
-          onClick={() => navigate("/signup")}
+          onClick={() => navigate("/auth/signup")}
           className="text-blue-600 font-medium hover:underline cursor-pointer"
         >
           Sign Up
