@@ -1,6 +1,7 @@
 // src/routes/AppRouter.tsx
 
 import { Routes, Route, Navigate } from "react-router-dom";
+import { getSubdomain } from "../lib/getSubdomain";
 
 // ─── Auth pages ───────────────────────────────────────────────────────────────
 import LoginProduct from "../auth/pages/LoginProduct";
@@ -37,21 +38,26 @@ interface AppRouterProps {
   onLogoutClick: () => void;
 }
 
-export default function AppRouter({ onLogoutClick }: AppRouterProps) {
+// ── Auth routes are identical on every subdomain ──────────────────────────────
+function AuthRoutes() {
   return (
-    <Routes>
-
-      {/* Default → go to login */}
-      <Route path="/" element={<Navigate to="/auth/login" replace />} />
-
-      {/* ── Auth ─────────────────────────────────────────────────────────── */}
+    <>
       <Route path="/auth/login"    element={<LoginProduct />} />
       <Route path="/auth/password" element={<LoginPassword />} />
       <Route path="/auth/otp"      element={<OTPVerify />} />
       <Route path="/auth/signup"   element={<Signup />} />
+    </>
+  );
+}
 
-      {/* ── Patient ──────────────────────────────────────────────────────── */}
-      <Route path="/patient" element={<PatientLayout />}>
+// ── Each section now lives at the ROOT, not under /patient, /doctor, /admin ───
+// (the subdomain itself is what used to be the path prefix)
+
+function PatientRoutes({ onLogoutClick }: AppRouterProps) {
+  return (
+    <Routes>
+      {AuthRoutes()}
+      <Route path="/" element={<PatientLayout />}>
         <Route index element={<Navigate to="dashboard" replace />} />
         <Route path="dashboard"    element={<DashboardPage onLogoutClick={onLogoutClick} />} />
         <Route path="appointments" element={<AppointmentsPage onLogoutClick={onLogoutClick} />} />
@@ -60,9 +66,16 @@ export default function AppRouter({ onLogoutClick }: AppRouterProps) {
         <Route path="billing"      element={<BillingPage onLogoutClick={onLogoutClick} />} />
         <Route path="settings"     element={<SettingsPage onLogoutClick={onLogoutClick} />} />
       </Route>
+      <Route path="*" element={<Navigate to="/auth/login" replace />} />
+    </Routes>
+  );
+}
 
-      {/* ── Doctor ───────────────────────────────────────────────────────── */}
-      <Route path="/doctor" element={<DoctorLayout />}>
+function DoctorRoutes({ onLogoutClick }: AppRouterProps) {
+  return (
+    <Routes>
+      {AuthRoutes()}
+      <Route path="/" element={<DoctorLayout />}>
         <Route index element={<Navigate to="dashboard" replace />} />
         <Route path="dashboard"    element={<DoctorDashboardPage onLogoutClick={onLogoutClick} />} />
         <Route path="appointments" element={<DoctorAppointmentsPage onLogoutClick={onLogoutClick} />} />
@@ -70,9 +83,16 @@ export default function AppRouter({ onLogoutClick }: AppRouterProps) {
         <Route path="prescription" element={<DoctorPrescriptionPage onLogoutClick={onLogoutClick} />} />
         <Route path="settings"     element={<DoctorSettingsPage onLogoutClick={onLogoutClick} />} />
       </Route>
+      <Route path="*" element={<Navigate to="/auth/login" replace />} />
+    </Routes>
+  );
+}
 
-      {/* ── Admin ────────────────────────────────────────────────────────── */}
-      <Route path="/admin" element={<AdminLayout />}>
+function AdminRoutes({ onLogoutClick }: AppRouterProps) {
+  return (
+    <Routes>
+      {AuthRoutes()}
+      <Route path="/" element={<AdminLayout />}>
         <Route index element={<Navigate to="dashboard" replace />} />
         <Route path="dashboard"    element={<AdminDashboardPage onLogoutClick={onLogoutClick} />} />
         <Route path="registration" element={<AdminRegistrationPage onLogoutClick={onLogoutClick} />} />
@@ -80,10 +100,29 @@ export default function AppRouter({ onLogoutClick }: AppRouterProps) {
         <Route path="insights"     element={<AdminInsightsPage onLogoutClick={onLogoutClick} />} />
         <Route path="settings"     element={<AdminSettingsPage onLogoutClick={onLogoutClick} />} />
       </Route>
-
-      {/* 404 → back to login */}
       <Route path="*" element={<Navigate to="/auth/login" replace />} />
-
     </Routes>
   );
+}
+
+// ── Fallback when hostname isn't a recognized subdomain ───────────────────────
+// (plain "localhost", "securclinic.com" with no prefix, a typo subdomain, etc.)
+function UnknownSubdomainRoutes() {
+  return (
+    <Routes>
+      {AuthRoutes()}
+      <Route path="*" element={<Navigate to="/auth/login" replace />} />
+    </Routes>
+  );
+}
+
+export default function AppRouter({ onLogoutClick }: AppRouterProps) {
+  console.log("hostname:", window.location.hostname, "| section:", getSubdomain());
+  const section = getSubdomain();
+
+  if (section === "patient") return <PatientRoutes onLogoutClick={onLogoutClick} />;
+  if (section === "doctor")  return <DoctorRoutes onLogoutClick={onLogoutClick} />;
+  if (section === "admin")   return <AdminRoutes onLogoutClick={onLogoutClick} />;
+
+  return <UnknownSubdomainRoutes />;
 }

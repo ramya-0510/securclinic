@@ -48,8 +48,11 @@ function OTPVerify() {
       return;
     }
     console.log("Verifying OTP:", otp);
-    
-    navigate("/patient/dashboard");
+
+    // Root-relative now — the subdomain (patient./doctor./admin.) already
+    // determines which AppRouter section is active, so "/dashboard" resolves
+    // correctly no matter who's logging in. No role-specific prefix needed.
+    navigate("/dashboard");
   };
 
   return (

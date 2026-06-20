@@ -20,17 +20,19 @@ function Sidebar({ onLogoutClick }: Props) {
   const navigate = useNavigate();
   const location = useLocation();
 
+  // Paths are root-relative now — each subdomain (patient./doctor./admin.)
+    
   const menuItems = [
-    { icon: LayoutDashboard, label: "Dashboard",     path: "/patient/dashboard"    },
-    { icon: CalendarDays,    label: "Appointments",  path: "/patient/appointments" },
-    { icon: FileText,        label: "Prescriptions", path: "/patient/prescription" },
-    { icon: Receipt,         label: "Billing",       path: "/patient/billing"      },
-    { icon: Headphones,      label: "Consultation",  path: "/patient/consultation" },
+    { icon: LayoutDashboard, label: "Dashboard",     path: "/dashboard"    },
+    { icon: CalendarDays,    label: "Appointments",  path: "/appointments" },
+    { icon: FileText,        label: "Prescriptions", path: "/prescription" },
+    { icon: Receipt,         label: "Billing",       path: "/billing"      },
+    { icon: Headphones,      label: "Consultation",  path: "/consultation" },
   ];
 
   // Only Settings here — Logout is its own button below, wired to onLogoutClick
   const bottomItems = [
-    { icon: Settings, label: "Settings", path: "/patient/settings" },
+    { icon: Settings, label: "Settings", path: "/settings" },
   ];
 
   return (

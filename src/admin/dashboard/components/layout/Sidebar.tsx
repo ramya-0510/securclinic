@@ -19,16 +19,18 @@ function Sidebar({ onLogoutClick }: Props) {
   const navigate = useNavigate();
   const location = useLocation();
 
+  // Paths are root-relative now — admin.securclinic.* serves these routes
+  // at "/", so no "/admin" prefix is needed here.
   const menuItems = [
-    { icon: LayoutDashboard, label: "Dashboard",    path: "/admin/dashboard"    },
-    { icon: UserPlus,        label: "New Registration", path: "/admin/registration" },
-    { icon: Receipt,         label: "Billing",      path: "/admin/billing"      },
+    { icon: LayoutDashboard, label: "Dashboard",        path: "/dashboard"    },
+    { icon: UserPlus,        label: "New Registration", path: "/registration" },
+    { icon: Receipt,         label: "Billing",          path: "/billing"      },
   ];
 
   // Only Insights + Settings here — Logout is its own button below, wired to onLogoutClick
   const bottomItems = [
-    { icon: BarChart3, label: "Insights", path: "/admin/insights" },
-    { icon: Settings,  label: "Settings", path: "/admin/settings" },
+    { icon: BarChart3, label: "Insights", path: "/insights" },
+    { icon: Settings,  label: "Settings", path: "/settings" },
   ];
 
   return (
